@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos DOM</title>
     <style>
-        body{ 
+        body {
             background-color: black;
             color: white;
             font: normal 20pt Arial;
         }
+
         div#a {
             margin: 100px auto;
             position: center;
@@ -21,49 +23,48 @@
             line-height: 200px;
             text-align: center;
         }
-
     </style>
 </head>
+
 <body>
     <h1>TESTE</h1>
-   
+
     <div id="a">
         Interaja...
     </div>
     <h1>Somando valores</h1>
     <input type="number" name="txtn1" id="txtn1">
     <input type="number" name="txtn2" id="txtn2">
-    <input type="button" value="Somar" onclick="somar()">
+    <input id="nBut" type="button" value="Somar" onclick="somar()">
     <div id="res">
         Resultado:
-    <nav>
-   
-    </nav>
-    <footer>
-       
-    </footer>
+        <nav>
+
+        </nav>
+        <footer>
+
+        </footer>
 </body>
 <script>
     var a = document.getElementById('a');
     a.addEventListener('click', clicar);
     a.addEventListener('mouseenter', entrar);
     a.addEventListener('mouseout', sair);
-    
-    function clicar() {
-        a.innerHTML = '';
-        a.style.backgroundColor = 'blue';
-        a.style.border = '2px solid red';
 
-}
+    function clicar() {
+        a.innerHTML = 'Clicou';
+        a.style.backgroundColor = 'blue';
+        a.style.border = '1px solid white';
+    }
     function entrar() {
         a.innerHTML = '';
         a.style.backgroundColor = 'green';
-}
-    function sair(){
+    }
+    function sair() {
         a.innerHTML = '';
         a.style.backgroundColor = 'grey';
         a.style.border = '0px solid white';
-}
+    }
 
     function somar() {
         var tn1 = document.getElementById('txtn1');
@@ -73,6 +74,23 @@
         var n2 = Number(tn2.value);
         var s = n1 + n2;
         res.innerHTML = `A soma entre ${n1} e ${n2} é igual a ${s}`;
+
+
+        if (s % 2 == 1) {
+            console.log('Impar');
+            a.innerHTML = 'Impar';
+            a.style.color = 'white';
+            a.style.backgroundColor = 'red';
+            a.style.border = '0px solid white';
+        } else {
+            console.log('Par');
+            a.innerHTML = 'Par';
+            a.style.color = 'white';
+            a.style.backgroundColor = 'grey';
+            a.style.border = '0px solid white';
+        }
     }
+
 </script>
+
 </html>
